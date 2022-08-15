@@ -8,6 +8,11 @@ public class Adrress implements Serializable{
     private Double longitude;
 
 
+    public Adrress(String nome, Double latitude, Double longitude) {
+        this.nome = nome;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
     public String getNome() {
         return nome;
     }
