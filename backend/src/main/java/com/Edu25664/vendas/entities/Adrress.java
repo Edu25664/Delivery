@@ -1,4 +1,4 @@
-package com.Edu25664.entities;
+package com.Edu25664.vendas.entities;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ public class Adrress implements Serializable{
     private Double latitude;
     private Double longitude;
 
-    
+
     public String getNome() {
         return nome;
     }
