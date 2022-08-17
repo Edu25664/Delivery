@@ -56,7 +56,7 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public String setAddress() {
+    public String getAddress() {
         return address;
     }
 
