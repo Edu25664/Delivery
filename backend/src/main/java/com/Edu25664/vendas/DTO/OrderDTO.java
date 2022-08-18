@@ -2,7 +2,9 @@ package com.Edu25664.vendas.DTO;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.Edu25664.vendas.entities.Order;
 import com.Edu25664.vendas.entities.OrderStatus;
@@ -19,13 +21,14 @@ public class OrderDTO implements Serializable {
 	private Double longitude;
 	private Instant moment;
 	private OrderStatus status;
+	
+	private List<ProductDTO> products = new ArrayList<>();
 
 	public OrderDTO() {
 
 	}
 
 	public OrderDTO(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
-		super();
 		this.id = id;
 		this.address = address;
 		this.latitude = latitude;
@@ -35,13 +38,14 @@ public class OrderDTO implements Serializable {
 	}
 	
 	public OrderDTO(Order entity) {
-		super();
-		this.id = entity.getId();
-		this.address = entity.getAddress();
-		this.latitude = entity.getLatitude();
-		this.longitude = entity.getLongitude();
-		this.moment = entity.getMoment();
-		this.status = entity.getOrder();
+		
+		id = entity.getId();
+		address = entity.getAddress();
+		latitude = entity.getLatitude();
+		longitude = entity.getLongitude();
+		moment = entity.getMoment();
+		status = entity.getOrder();
+		products = entity.getProduct().stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -92,23 +96,8 @@ public class OrderDTO implements Serializable {
 		this.status = status;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
+	public List<ProductDTO> getProducts() {
+		return products;
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		OrderDTO other = (OrderDTO) obj;
-		return Objects.equals(id, other.id);
-	}
-	
-      
 
 }

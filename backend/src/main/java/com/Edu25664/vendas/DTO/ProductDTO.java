@@ -1,7 +1,6 @@
 package com.Edu25664.vendas.DTO;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import com.Edu25664.vendas.entities.Product;
 
@@ -76,21 +75,5 @@ public class ProductDTO implements Serializable {
 		this.imageUri = imageUri;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ProductDTO other = (ProductDTO) obj;
-		return Objects.equals(id, other.id);
-	}
 	
 }
