@@ -87,11 +87,11 @@ public class Order implements Serializable {
         this.moment = moment;
     }
 
-    public OrderStatus getOrder() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setOrder(OrderStatus status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 
